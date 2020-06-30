@@ -2,10 +2,10 @@ package com.codingwithmitch.daggerhiltplayground.business.interactors
 
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSource
 import com.codingwithmitch.daggerhiltplayground.business.data.network.NetworkDataSource
-import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class GetBlogs
+@Inject
 constructor(
     private val cacheDataSource: CacheDataSource,
     private val networkDataSource: NetworkDataSource

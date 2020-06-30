@@ -1,4 +1,4 @@
-package com.codingwithmitch.daggerhiltplayground
+package com.codingwithmitch.daggerhiltplayground.framework.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

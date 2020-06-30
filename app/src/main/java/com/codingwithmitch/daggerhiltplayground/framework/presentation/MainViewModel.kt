@@ -1,4 +1,4 @@
-package com.codingwithmitch.daggerhiltplayground
+package com.codingwithmitch.daggerhiltplayground.framework.presentation
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject

@@ -1,8 +1,9 @@
-package com.codingwithmitch.daggerhiltplayground
+package com.codingwithmitch.daggerhiltplayground.framework.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.codingwithmitch.daggerhiltplayground.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
