@@ -6,7 +6,6 @@ import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.map
 import javax.inject.Inject
 
 class NetworkDataSourceImpl
-@Inject
 constructor(
     private val blogService: BlogService,
     private val networkMapper: NetworkMapper

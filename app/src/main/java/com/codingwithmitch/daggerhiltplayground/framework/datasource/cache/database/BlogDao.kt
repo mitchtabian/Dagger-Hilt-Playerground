@@ -2,6 +2,7 @@ package com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.data
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.model.BlogCacheEntity
@@ -9,7 +10,7 @@ import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.model
 @Dao
 interface BlogDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(blogEntity: BlogCacheEntity): Long
 
     @Query("SELECT * FROM blogs")

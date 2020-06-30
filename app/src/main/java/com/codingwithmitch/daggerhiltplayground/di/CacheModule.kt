@@ -1,5 +1,6 @@
 package com.codingwithmitch.daggerhiltplayground.di
 
+import android.content.Context
 import androidx.room.Room
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSource
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSourceImpl
@@ -14,6 +15,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 @Module
@@ -28,9 +30,12 @@ object CacheModule {
 
     @Singleton
     @Provides
-    fun provideNoteDb(app: MyApplication): BlogDatabase {
+    fun provideBlogDb(@ApplicationContext context: Context): BlogDatabase {
         return Room
-            .databaseBuilder(app, BlogDatabase::class.java, BlogDatabase.DATABASE_NAME)
+            .databaseBuilder(
+                context,
+                BlogDatabase::class.java,
+                BlogDatabase.DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .build()
     }
@@ -49,6 +54,7 @@ object CacheModule {
     ): CacheDataSource{
         return CacheDataSourceImpl(blogDao, cacheMapper)
     }
+
 
 }
 

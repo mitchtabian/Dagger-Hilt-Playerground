@@ -60,6 +60,8 @@ dependencies {
     def fragment_ktx = "1.2.5"
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
 
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+
     def retrofit = "2.6.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"

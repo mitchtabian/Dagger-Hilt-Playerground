@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 class BlogNetworkEntity(
 
-    @SerializedName("id")
+    @SerializedName("pk")
     @Expose
     var id: Int,
 
