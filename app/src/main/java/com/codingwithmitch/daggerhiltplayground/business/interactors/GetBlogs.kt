@@ -1,6 +1,5 @@
 package com.codingwithmitch.daggerhiltplayground.business.interactors
 
-import android.util.Log
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSource
 import com.codingwithmitch.daggerhiltplayground.business.data.network.NetworkDataSource
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
