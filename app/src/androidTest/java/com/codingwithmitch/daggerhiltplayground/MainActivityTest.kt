@@ -1,5 +1,6 @@
 package com.codingwithmitch.daggerhiltplayground
 
+import android.os.Bundle
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.testing.launchFragment
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
@@ -45,13 +46,10 @@ class MainActivityTest {
         assertThat(someString, containsString("TEST string"))
     }
 
-//    @Test
-//    fun mainFragmentTest(){
-//        val scenario = launchFragmentInHiltContainer<MainFragment>(
-//            fac
-//        )
-//        launchFragment(factory = FragmentFactory())
-//    }
+    @Test
+    fun mainFragmentTest(){
+        val scenario = launchFragmentInHiltContainer<MainFragment>(Bundle(), R.style.AppTheme)
+    }
 
     @Module
     @InstallIn(ApplicationComponent::class)
