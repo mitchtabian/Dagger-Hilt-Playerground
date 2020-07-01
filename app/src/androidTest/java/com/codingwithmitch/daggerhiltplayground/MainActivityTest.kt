@@ -1,17 +1,14 @@
 package com.codingwithmitch.daggerhiltplayground
 
-import android.os.Bundle
-import androidx.fragment.app.FragmentFactory
-import androidx.fragment.app.testing.launchFragment
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import com.codingwithmitch.daggerhiltplayground.di.ProductionModule
 import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainFragment
+import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainFragmentFactory
 import com.codingwithmitch.daggerhiltplayground.util.launchFragmentInHiltContainer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
@@ -34,7 +31,10 @@ class MainActivityTest {
     @Inject
     lateinit var someString: String
 
-//    @BindValue var myString: String = "gggf" // Doesn't work??
+    @Inject
+    lateinit var fragmentFactory: MainFragmentFactory
+
+//    @BindValue var myString: String = "gggf" // Doesn't work?? I'm prob doing it wrong.
 
     @Before
     fun init() {
@@ -48,7 +48,9 @@ class MainActivityTest {
 
     @Test
     fun mainFragmentTest(){
-        val scenario = launchFragmentInHiltContainer<MainFragment>(Bundle(), R.style.AppTheme)
+        val scenario = launchFragmentInHiltContainer<MainFragment>(
+            factory = fragmentFactory
+        )
     }
 
     @Module
