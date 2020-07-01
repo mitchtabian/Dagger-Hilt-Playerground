@@ -1,6 +1,7 @@
 package com.codingwithmitch.daggerhiltplayground.framework.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,7 +17,12 @@ import java.lang.StringBuilder
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class MainFragment: Fragment(R.layout.fragment_main) {
+class MainFragment
+constructor(
+    private val someString: String
+): Fragment(R.layout.fragment_main) {
+
+    private val TAG: String = "AppDebug"
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -24,6 +30,8 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         subscribeObservers()
         viewModel.setStateEvent(GetBlogsEvent)
+
+        Log.d(TAG, "someString: ${someString}")
     }
 
     private fun subscribeObservers(){
