@@ -58,5 +58,36 @@ https://developer.android.com/training/dependency-injection/hilt-testing
                                              factory = fragmentFactory
                                          )`
 
+# Issues
+#### I got this weird error:
+```
+Could not determine the dependencies of task ':app:processDebugAndroidTestManifest'.
+> Could not resolve all task dependencies for configuration ':app:debugAndroidTestRuntimeClasspath'.
+   > Could not resolve com.google.code.findbugs:jsr305:{strictly 3.0.1}.
+     Required by:
+         project :app
+      > Cannot find a version of 'com.google.code.findbugs:jsr305' that satisfies the version constraints: 
+           Dependency path 'DaggerHiltPlayground:app:unspecified' --> 'androidx.test.espresso:espresso-core:3.2.0' --> 'com.google.code.findbugs:jsr305:2.0.1'
+           Constraint path 'DaggerHiltPlayground:app:unspecified' --> 'com.google.code.findbugs:jsr305:{strictly 3.0.1}' because of the following reason: debugRuntimeClasspath uses version 3.0.1
+           Dependency path 'DaggerHiltPlayground:app:unspecified' --> 'com.google.dagger:hilt-android-testing:2.28-alpha' --> 'com.google.code.findbugs:jsr305:3.0.1'
+           Dependency path 'DaggerHiltPlayground:app:unspecified' --> 'com.google.dagger:hilt-android:2.28-alpha' --> 'com.google.code.findbugs:jsr305:3.0.1'
+           Dependency path 'DaggerHiltPlayground:app:unspecified' --> 'com.google.dagger:hilt-android-testing:2.28-alpha' --> 'com.google.guava:guava:27.1-jre' --> 'com.google.code.findbugs:jsr305:3.0.2'
+```
+
+#### Solution
+https://github.com/invertase/react-native-firebase/issues/1954
+
+I just added this to `build.gradle` and everything worked fine:
+```
+android {
+    ... 
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.0'
+    }
+}
+```
+
+
 
 
