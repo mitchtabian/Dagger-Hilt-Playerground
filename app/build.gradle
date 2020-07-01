@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.codingwithmitch.daggerhiltplayground.MyTestRunner"
     }
 
     buildTypes {
@@ -34,6 +34,9 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.0'
+    }
 }
 
 dependencies {
@@ -70,6 +73,14 @@ dependencies {
     implementation "androidx.room:room-runtime:$room"
     implementation "androidx.room:room-ktx:$room"
     kapt "androidx.room:room-compiler:$room"
+
+    /*
+        Tests
+     */
+    // Hilt
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
 }
 
 kapt {

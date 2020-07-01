@@ -2,7 +2,6 @@ package com.codingwithmitch.daggerhiltplayground.framework.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
@@ -12,9 +11,7 @@ import com.codingwithmitch.daggerhiltplayground.business.domain.state.DataState
 import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainStateEvent.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.withContext
 import java.lang.StringBuilder
 
 @ExperimentalCoroutinesApi
