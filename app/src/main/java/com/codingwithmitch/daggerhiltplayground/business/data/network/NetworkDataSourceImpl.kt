@@ -6,7 +6,7 @@ import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.map
 
 class NetworkDataSourceImpl
 constructor(
-    private val blogRetrofitService: BlogRetrofitService
+    private val blogRetrofitService: BlogRetrofitService,
     private val networkMapper: NetworkMapper
 ): NetworkDataSource{
 
