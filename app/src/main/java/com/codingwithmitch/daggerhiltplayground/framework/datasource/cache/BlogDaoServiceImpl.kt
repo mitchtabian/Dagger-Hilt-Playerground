@@ -2,10 +2,8 @@ package com.codingwithmitch.daggerhiltplayground.framework.datasource.cache
 
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.database.BlogDao
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.model.BlogCacheEntity
-import javax.inject.Inject
 
 class BlogDaoServiceImpl
-@Inject
 constructor(
     private val blogDao: BlogDao
 ): BlogDaoService {

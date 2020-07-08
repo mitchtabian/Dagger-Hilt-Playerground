@@ -4,6 +4,8 @@ import com.codingwithmitch.daggerhiltplayground.business.data.network.NetworkDat
 import com.codingwithmitch.daggerhiltplayground.business.data.network.NetworkDataSourceImpl
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
 import com.codingwithmitch.daggerhiltplayground.business.domain.util.EntityMapper
+import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.BlogRetrofitService
+import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.BlogRetrofitServiceImpl
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.retrofit.BlogRetrofit
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.mappers.NetworkMapper
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.model.BlogNetworkEntity
@@ -53,11 +55,19 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    fun provideRetrofitService(
+        blogRetrofit: BlogRetrofit
+    ): BlogRetrofitService{
+        return BlogRetrofitServiceImpl(blogRetrofit)
+    }
+
+    @Singleton
+    @Provides
     fun provideNetworkDataSource(
-        blogService: BlogRetrofit,
+        blogRetrofitService: BlogRetrofitService,
         networkMapper: NetworkMapper
     ): NetworkDataSource{
-        return NetworkDataSourceImpl(blogService, networkMapper)
+        return NetworkDataSourceImpl(blogRetrofitService, networkMapper)
     }
 
 }
