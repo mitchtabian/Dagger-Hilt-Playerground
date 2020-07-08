@@ -35,6 +35,10 @@ constructor(
                         }
                         .launchIn(viewModelScope)
                 }
+
+                None -> {
+                    // who cares
+                }
             }
         }
     }
