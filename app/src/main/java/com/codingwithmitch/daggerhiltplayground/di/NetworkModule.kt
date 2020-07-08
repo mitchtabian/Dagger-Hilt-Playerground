@@ -4,7 +4,7 @@ import com.codingwithmitch.daggerhiltplayground.business.data.network.NetworkDat
 import com.codingwithmitch.daggerhiltplayground.business.data.network.NetworkDataSourceImpl
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
 import com.codingwithmitch.daggerhiltplayground.business.domain.util.EntityMapper
-import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.BlogService
+import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.retrofit.BlogRetrofit
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.mappers.NetworkMapper
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.model.BlogNetworkEntity
 import com.google.gson.Gson
@@ -45,16 +45,16 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideBlogService(retrofit: Retrofit.Builder): BlogService {
+    fun provideBlogService(retrofit: Retrofit.Builder): BlogRetrofit {
         return retrofit
             .build()
-            .create(BlogService::class.java)
+            .create(BlogRetrofit::class.java)
     }
 
     @Singleton
     @Provides
     fun provideNetworkDataSource(
-        blogService: BlogService,
+        blogService: BlogRetrofit,
         networkMapper: NetworkMapper
     ): NetworkDataSource{
         return NetworkDataSourceImpl(blogService, networkMapper)

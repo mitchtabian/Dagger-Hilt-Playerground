@@ -1,13 +1,12 @@
 package com.codingwithmitch.daggerhiltplayground.business.data.network
 
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
-import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.BlogService
+import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.retrofit.BlogRetrofit
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.network.mappers.NetworkMapper
-import javax.inject.Inject
 
 class NetworkDataSourceImpl
 constructor(
-    private val blogService: BlogService,
+    private val blogService: BlogRetrofit,
     private val networkMapper: NetworkMapper
 ): NetworkDataSource{
 
