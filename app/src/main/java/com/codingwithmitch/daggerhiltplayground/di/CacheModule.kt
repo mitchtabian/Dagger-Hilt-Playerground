@@ -6,6 +6,8 @@ import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSou
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSourceImpl
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
 import com.codingwithmitch.daggerhiltplayground.business.domain.util.EntityMapper
+import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.BlogDaoService
+import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.BlogDaoServiceImpl
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.database.BlogDao
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.database.BlogDatabase
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.mappers.CacheMapper
@@ -48,11 +50,19 @@ object CacheModule {
 
     @Singleton
     @Provides
+    fun provideBlogDaoService(
+        blogDao: BlogDao
+    ): BlogDaoService{
+        return BlogDaoServiceImpl(blogDao)
+    }
+
+    @Singleton
+    @Provides
     fun provideCacheDataSource(
-        blogDao: BlogDao,
+        blogDaoService: BlogDaoService,
         cacheMapper: CacheMapper
     ): CacheDataSource{
-        return CacheDataSourceImpl(blogDao, cacheMapper)
+        return CacheDataSourceImpl(blogDaoService, cacheMapper)
     }
 
 
