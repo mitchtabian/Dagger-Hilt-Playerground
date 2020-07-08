@@ -29,7 +29,7 @@ I will be making video lectures using the gists below as examples.
 	- https://gist.github.com/mitchtabian/2838e5497b2b2e5777d0f5c0e6ecc79e
 
 
-### [Basic MVI Repository Pattern](https://github.com/mitchtabian/Dagger-Hilt-Playerground/tree/Basic-MVI-Repository-Pattern)
+## [Basic MVI Repository Pattern](https://github.com/mitchtabian/Dagger-Hilt-Playerground/tree/Basic-MVI-Repository-Pattern)
 
 **NOTE** This is not how I would build out the architecture normally. I greatly simplified this for beginners. See [Simple Network & Cache Use-case](https://github.com/mitchtabian/Dagger-Hilt-Playerground/tree/Simple-Network-Cache-Use-Case) for a [Clean Architecture](https://codingwithmitch.com/courses/android-clean-architecture/) Implementation of the same thing.
 
