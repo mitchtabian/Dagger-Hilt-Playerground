@@ -1,10 +1,6 @@
 package com.codingwithmitch.daggerhiltplayground.di
 
-import com.codingwithmitch.daggerhiltplayground.model.Blog
-import com.codingwithmitch.daggerhiltplayground.util.EntityMapper
 import com.codingwithmitch.daggerhiltplayground.retrofit.BlogRetrofit
-import com.codingwithmitch.daggerhiltplayground.retrofit.NetworkMapper
-import com.codingwithmitch.daggerhiltplayground.retrofit.BlogNetworkEntity
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -19,11 +15,6 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object RetrofitModule {
 
-    @Singleton
-    @Provides
-    fun provideNetworkMapper(): EntityMapper<BlogNetworkEntity, Blog> {
-        return NetworkMapper()
-    }
 
     @Singleton
     @Provides

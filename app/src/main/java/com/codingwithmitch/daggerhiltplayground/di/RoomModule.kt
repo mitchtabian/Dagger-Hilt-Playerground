@@ -2,12 +2,8 @@ package com.codingwithmitch.daggerhiltplayground.di
 
 import android.content.Context
 import androidx.room.Room
-import com.codingwithmitch.daggerhiltplayground.model.Blog
-import com.codingwithmitch.daggerhiltplayground.room.BlogCacheEntity
 import com.codingwithmitch.daggerhiltplayground.room.BlogDao
 import com.codingwithmitch.daggerhiltplayground.room.BlogDatabase
-import com.codingwithmitch.daggerhiltplayground.room.CacheMapper
-import com.codingwithmitch.daggerhiltplayground.util.EntityMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,12 +14,6 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 @Module
 object RoomModule {
-
-    @Singleton
-    @Provides
-    fun provideCacheMapper(): EntityMapper<BlogCacheEntity, Blog> {
-        return CacheMapper()
-    }
 
     @Singleton
     @Provides
