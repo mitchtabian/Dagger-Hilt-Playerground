@@ -4,15 +4,11 @@ import android.content.Context
 import androidx.room.Room
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSource
 import com.codingwithmitch.daggerhiltplayground.business.data.cache.CacheDataSourceImpl
-import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
-import com.codingwithmitch.daggerhiltplayground.business.domain.util.EntityMapper
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.BlogDaoService
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.BlogDaoServiceImpl
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.database.BlogDao
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.database.BlogDatabase
 import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.mappers.CacheMapper
-import com.codingwithmitch.daggerhiltplayground.framework.datasource.cache.model.BlogCacheEntity
-import com.codingwithmitch.daggerhiltplayground.framework.presentation.MyApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,12 +19,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object CacheModule {
-
-    @Singleton
-    @Provides
-    fun provideCacheMapper(): EntityMapper<BlogCacheEntity, Blog>{
-        return CacheMapper()
-    }
 
     @Singleton
     @Provides
