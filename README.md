@@ -44,6 +44,9 @@ I will be making video lectures using the gists below as examples.
 2. Cache data with [Room](https://developer.android.com/topic/libraries/architecture/room)
 3. Display cached data in UI
 
+## [Fragment Constructor Injection with Hilt](https://github.com/mitchtabian/Dagger-Hilt-Playerground/tree/Fragment-Constructor-Injection)
+1. How to do fragment constructor injection with Hilt.
+
 
 ## [Instrumentation Testing](https://github.com/mitchtabian/Dagger-Hilt-Playerground/tree/hilt-testing)
 #### Guide: 
