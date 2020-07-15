@@ -16,12 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportFragmentManager.fragmentFactory = fragmentFactory // must be after onCreate
         setContentView(R.layout.activity_main)
-
-        supportFragmentManager.fragmentFactory = fragmentFactory
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_fragment, MainFragment::class.java, null)
-            .commit()
     }
 }
 
