@@ -31,7 +31,7 @@ constructor(
         subscribeObservers()
         viewModel.setStateEvent(GetBlogsEvent)
 
-        Log.d(TAG, "someString: ${someString}")
+        Log.d(TAG, "MainFragment: ${someString}")
     }
 
     private fun subscribeObservers(){

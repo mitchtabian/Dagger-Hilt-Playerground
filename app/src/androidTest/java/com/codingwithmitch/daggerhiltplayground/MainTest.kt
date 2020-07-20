@@ -1,12 +1,15 @@
 package com.codingwithmitch.daggerhiltplayground
 
+import androidx.test.core.app.launchActivity
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import com.codingwithmitch.daggerhiltplayground.di.ProductionModule
+import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainActivity
 import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainFragment
 import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainFragmentFactory
 import com.codingwithmitch.daggerhiltplayground.util.launchFragmentInHiltContainer
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.EntryPoints
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -23,7 +26,7 @@ import javax.inject.Singleton
 @ExperimentalCoroutinesApi
 @UninstallModules(ProductionModule::class)
 @HiltAndroidTest
-class MainActivityTest {
+class MainTest {
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
@@ -39,6 +42,8 @@ class MainActivityTest {
     @Before
     fun init() {
         hiltRule.inject()
+
+
     }
 
     @Test
@@ -51,6 +56,11 @@ class MainActivityTest {
         val scenario = launchFragmentInHiltContainer<MainFragment>(
             factory = fragmentFactory
         )
+    }
+
+    @Test
+    fun mainActivityTest(){
+        val scenario = launchActivity<MainActivity>()
     }
 
     @Module
