@@ -51,7 +51,7 @@ dependencies {
 
     def hilt_version = "2.31.2-alpha"
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     def hilt_viewmodels = "1.0.0-alpha02"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
