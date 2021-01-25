@@ -1,20 +1,22 @@
 package com.codingwithmitch.daggerhiltplayground.framework.presentation
 
 import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.codingwithmitch.daggerhiltplayground.business.domain.models.Blog
 import com.codingwithmitch.daggerhiltplayground.business.domain.state.DataState
 import com.codingwithmitch.daggerhiltplayground.business.interactors.GetBlogs
 import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainStateEvent.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
+@HiltViewModel
 class MainViewModel
-@ViewModelInject
+@Inject
 constructor(
     private val getBlogs: GetBlogs,
     @Assisted private val savedStateHandle: SavedStateHandle

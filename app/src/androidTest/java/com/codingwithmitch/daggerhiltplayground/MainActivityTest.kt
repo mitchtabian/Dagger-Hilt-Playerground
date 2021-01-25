@@ -7,11 +7,10 @@ import com.codingwithmitch.daggerhiltplayground.framework.presentation.MainFragm
 import com.codingwithmitch.daggerhiltplayground.util.launchFragmentInHiltContainer
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import dagger.hilt.android.testing.UninstallModules
+import dagger.hilt.components.SingletonComponent
+import dagger.hilt.testing.TestInstallIn
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.CoreMatchers.containsString
 import org.junit.Before
@@ -21,7 +20,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @ExperimentalCoroutinesApi
-@UninstallModules(ProductionModule::class)
 @HiltAndroidTest
 class MainActivityTest {
 
@@ -53,19 +51,22 @@ class MainActivityTest {
         )
     }
 
-    @Module
-    @InstallIn(ApplicationComponent::class)
-    object ProductionModule {
-
-
-        @Singleton
-        @Provides
-        fun provideString(): String{
-            return "This is a TEST string I'm providing for injection"
-        }
-    }
 }
 
+
+@Module
+@TestInstallIn(
+    components = [SingletonComponent::class],
+    replaces = [ProductionModule::class]
+)
+object FakeProductionModule {
+
+    @Singleton
+    @Provides
+    fun provideString(): String{
+        return "This is a TEST string I'm providing for injection"
+    }
+}
 
 
 
