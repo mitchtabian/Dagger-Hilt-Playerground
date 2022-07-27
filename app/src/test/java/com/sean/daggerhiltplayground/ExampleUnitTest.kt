@@ -1,4 +1,4 @@
-package com.codingwithmitch.daggerhiltplayground
+package com.sean.daggerhiltplayground
 
 import org.junit.Test
 
